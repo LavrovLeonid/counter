@@ -39,21 +39,14 @@ struct Counter: CounterProtocol, CounterHistoryProtocol {
     
     // MARK: Private properties
     
-    private var history: [CounterHistoryItem]
-    private var count: Int
+    private var history: [CounterHistoryItem] = [CounterHistoryItem(type: .initial, date: Date())]
+    private var count: Int = Counter.initialValue
     private var minValue: Int = 0
     
     // MARK: Computed properties
     
     var countDisplayText: String {
         "Значение счётчика: \(count)"
-    }
-    
-    // MARK: Initializators
-    
-    init() {
-        self.history = [CounterHistoryItem(type: .initial, date: Date())]
-        self.count = Counter.initialValue
     }
     
     // MARK: Private API
