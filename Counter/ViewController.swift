@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     // MARK: Properties
     
-    var counter = Counter() {
+    private var counter = Counter() {
         didSet {
             updateUI()
         }
@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     
     // MARK: Outlets
 
-    @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var historyTextViewLabel: UITextView!
+    @IBOutlet private weak var countLabel: UILabel!
+    @IBOutlet private weak var historyTextView: UITextView!
     
     // MARK: Life cycle
     
@@ -33,27 +33,27 @@ class ViewController: UIViewController {
     
     private func updateUI() {
         countLabel.text = counter.countDisplayText
-        historyTextViewLabel.text = "История изменений:\n\(counter.getHistoryDisplayText())"
+        historyTextView.text = "История изменений:\n\(counter.getHistoryDisplayText())"
         
         
-        let scrollY = historyTextViewLabel.contentSize.height - historyTextViewLabel.bounds.size.height
+        let scrollY = historyTextView.contentSize.height - historyTextView.bounds.size.height
         
         if scrollY > 0 {
-            historyTextViewLabel.setContentOffset(.init(x: 0, y: scrollY), animated: false)
+            historyTextView.setContentOffset(.init(x: 0, y: scrollY), animated: false)
         }
     }
     
     // MARK: Actions
     
-    @IBAction private func onClickIncrement() {
+    @IBAction private func incrementButtonTapped() {
         counter.increment()
     }
     
-    @IBAction private func onClickDecrement() {
+    @IBAction private func decrementButtonTapped() {
         counter.decrement()
     }
     
-    @IBAction private func onClickReset() {
+    @IBAction private func resetButtonTapped() {
         counter.reset()
     }
 }

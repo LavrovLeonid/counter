@@ -30,7 +30,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" image="arrow.clockwise" catalog="system"/>
                                         <connections>
-                                            <action selector="onClickReset" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wye-3K-Dak"/>
+                                            <action selector="resetButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="POh-Ti-o2G"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -51,7 +51,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="-"/>
                                         <connections>
-                                            <action selector="onClickDecrement" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZOl-C7-HdC"/>
+                                            <action selector="decrementButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="CsF-Mr-u10"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYF-c7-eqH" userLabel="Increment Button">
@@ -60,7 +60,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="+"/>
                                         <connections>
-                                            <action selector="onClickIncrement" destination="BYZ-38-t0r" eventType="touchUpInside" id="5aV-gJ-ntO"/>
+                                            <action selector="incrementButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="RHM-fI-nvr"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -83,7 +83,7 @@
                     </view>
                     <connections>
                         <outlet property="countLabel" destination="KO9-Ir-rNw" id="srO-zI-i8O"/>
-                        <outlet property="historyTextViewLabel" destination="r6H-Xa-2Li" id="xV7-0b-3Tu"/>
+                        <outlet property="historyTextView" destination="r6H-Xa-2Li" id="xV7-0b-3Tu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
