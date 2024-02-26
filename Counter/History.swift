@@ -19,4 +19,8 @@ class History: HistoryProtocol {
             partialResult + historyItem.getDisplayText()
         }
     }
+    
+    func clearHistory() {
+        history.removeAll()
+    }
 }

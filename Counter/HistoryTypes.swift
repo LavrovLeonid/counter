@@ -15,5 +15,6 @@ protocol HistoryProtocol {
     typealias Item = HistoryItem
     
     func appendHistory(_ item: Item)
+    func clearHistory()
     func getHistoryDisplayText() -> String
 }

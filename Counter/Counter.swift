@@ -99,4 +99,12 @@ final class Counter: History, CounterProtocol {
     func reset() {
         changeCount(.reset, changeOn: Counter.initialValue)
     }
+    
+    // MARK: Overrides
+    
+    override func clearHistory() {
+        super.clearHistory()
+        
+        delegate?.counterDidChange()
+    }
 }
