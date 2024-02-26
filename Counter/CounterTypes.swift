@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CountType {
+enum CountActionType {
     case initial
     case increment
     case decrement
@@ -15,16 +15,22 @@ enum CountType {
     case reset
 }
 
+protocol CounterDelegate {
+    func counterDidChange()
+}
+
 protocol CounterProtocol {
     static var initialValue: Int { get }
 
+    var delegate: CounterDelegate? { get set }
     var countDisplayText: String { get }
     
-    mutating func increment()
-    mutating func decrement()
-    mutating func reset()
+    func increment()
+    func decrement()
+    func reset()
 }
 
-protocol CounterHistoryProtocol {
-    func getHistoryDisplayText() -> String
+protocol CounterHistorItemProtocol: HistoryItem {
+    var type: CountActionType { get }
+    var date: Date { get }
 }

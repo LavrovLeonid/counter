@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40649C62B8C929500489886 /* HistoryTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40649C52B8C929500489886 /* HistoryTypes.swift */; };
+		F40649C82B8C92A100489886 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40649C72B8C92A100489886 /* History.swift */; };
 		F4F64D8A2B8722110009C992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F64D892B8722110009C992 /* AppDelegate.swift */; };
 		F4F64D8C2B8722110009C992 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F64D8B2B8722110009C992 /* SceneDelegate.swift */; };
 		F4F64D8E2B8722110009C992 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F64D8D2B8722110009C992 /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F40649C52B8C929500489886 /* HistoryTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTypes.swift; sourceTree = "<group>"; };
+		F40649C72B8C92A100489886 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		F4F64D862B8722110009C992 /* Counter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Counter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4F64D892B8722110009C992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4F64D8B2B8722110009C992 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 				F4F64D892B8722110009C992 /* AppDelegate.swift */,
 				F4F64D9D2B872AB20009C992 /* Counter.swift */,
 				F4F64DA12B875C910009C992 /* CounterTypes.swift */,
+				F40649C72B8C92A100489886 /* History.swift */,
+				F40649C52B8C929500489886 /* HistoryTypes.swift */,
 				F4F64D8B2B8722110009C992 /* SceneDelegate.swift */,
 				F4F64D8D2B8722110009C992 /* ViewController.swift */,
 				F4F64D922B8722120009C992 /* Assets.xcassets */,
@@ -146,6 +152,8 @@
 			files = (
 				F4F64D9E2B872AB20009C992 /* Counter.swift in Sources */,
 				F4F64D8E2B8722110009C992 /* ViewController.swift in Sources */,
+				F40649C82B8C92A100489886 /* History.swift in Sources */,
+				F40649C62B8C929500489886 /* HistoryTypes.swift in Sources */,
 				F4F64DA22B875C910009C992 /* CounterTypes.swift in Sources */,
 				F4F64D8A2B8722110009C992 /* AppDelegate.swift in Sources */,
 				F4F64D8C2B8722110009C992 /* SceneDelegate.swift in Sources */,

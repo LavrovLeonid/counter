@@ -10,11 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     // MARK: Properties
     
-    private var counter = Counter() {
-        didSet {
-            updateUI()
-        }
-    }
+    private var counter = Counter()
     
     // MARK: Outlets
 
@@ -26,6 +22,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        counter.delegate = self
+        
         updateUI()
     }
     
@@ -34,7 +32,6 @@ class ViewController: UIViewController {
     private func updateUI() {
         countLabel.text = counter.countDisplayText
         historyTextView.text = "История изменений:\n\(counter.getHistoryDisplayText())"
-        
         
         let scrollY = historyTextView.contentSize.height - historyTextView.bounds.size.height
         
@@ -58,3 +55,8 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: CounterDelegate {
+    func counterDidChange() {
+        updateUI()
+    }
+}

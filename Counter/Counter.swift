@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct CounterHistoryItem {
-    let type: CountType
+struct CounterHistoryItem: CounterHistorItemProtocol {
+    let type: CountActionType
     let date: Date
+    
+    init(_ type: CountActionType) {
+        self.type = type
+        self.date = Date()
+    }
     
     func getDisplayText() -> String {
         let dateFormatter = DateFormatter()
@@ -32,16 +37,23 @@ struct CounterHistoryItem {
     }
 }
 
-struct Counter: CounterProtocol, CounterHistoryProtocol {
+final class Counter: History, CounterProtocol {
     // MARK: Static properties
     
     static var initialValue: Int = 0
     
     // MARK: Private properties
     
-    private var history: [CounterHistoryItem] = [CounterHistoryItem(type: .initial, date: Date())]
-    private var count: Int = Counter.initialValue
     private var minValue: Int = 0
+    private var count: Int = Counter.initialValue {
+        didSet {
+            delegate?.counterDidChange()
+        }
+    }
+    
+    // MARK: Properties
+    
+    var delegate: CounterDelegate?
     
     // MARK: Computed properties
     
@@ -51,11 +63,10 @@ struct Counter: CounterProtocol, CounterHistoryProtocol {
     
     // MARK: Private API
     
-    private mutating func changeCount(type: CountType, changeOn: Int) {
-        let date = Date()
+    private func changeCount(_ type: CountActionType, changeOn: Int) {
         var tempCount = count
-        var counterHistoryItem = CounterHistoryItem(type: type, date: date)
-        
+        var counterHistoryItem = CounterHistoryItem(type)
+
         switch type {
         case .increment:
             tempCount += changeOn
@@ -68,30 +79,24 @@ struct Counter: CounterProtocol, CounterHistoryProtocol {
         if tempCount < minValue {
             tempCount = minValue
 
-            counterHistoryItem = CounterHistoryItem(type: .minOverload, date: date)
+            counterHistoryItem = CounterHistoryItem(.minOverload)
         }
         
+        self.appendHistory(counterHistoryItem)
         self.count = tempCount
-        self.history.append(counterHistoryItem)
     }
     
     // MARK: Public API
     
-    mutating func increment() {
-        changeCount(type: .increment, changeOn: 1)
+    func increment() {
+        changeCount(.increment, changeOn: 1)
     }
     
-    mutating func decrement() {
-        changeCount(type: .decrement, changeOn: 1)
+    func decrement() {
+        changeCount(.decrement, changeOn: 1)
     }
     
-    mutating func reset() {
-        changeCount(type: .reset, changeOn: Counter.initialValue)
-    }
-    
-    func getHistoryDisplayText() -> String {
-        history.reduce("") { partialResult, historyItem in
-            partialResult + historyItem.getDisplayText()
-        }
+    func reset() {
+        changeCount(.reset, changeOn: Counter.initialValue)
     }
 }
